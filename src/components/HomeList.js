@@ -11,7 +11,7 @@ const HomeList = ({ accounts }) => {
       {accounts.map((acct) => {
         return (
           <Item
-            extra="extra content"
+            extra={acct.userEmails.length}
             arrow="horizontal"
             onClick={() => {}}
             key={acct._id}

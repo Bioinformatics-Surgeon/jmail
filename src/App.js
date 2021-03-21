@@ -4,6 +4,8 @@ import { Icon, Btn } from "./components/buttons";
 import HomeList from "./components/HomeList";
 import "./css/App.css";
 import API from "./data/API";
+import { Space } from "antd";
+import BottomNav from "./components/BottomNav";
 
 const rightIcons = ["search", "reload", "settings"];
 
@@ -34,12 +36,10 @@ function App() {
           return <Icon key={i} icon={icon} />;
         })}
       />
-      <HomeList accounts={accounts} />
-      <NavBar
-        style={{ backgroundColor: "#e4e8ec" }}
-        leftContent={<Btn text="Account" icon={<Icon icon="mail" />} />}
-        rightContent={<Btn text="Edit" />}
-      />
+      <Space direction="vertical" style={{ width: "100%" }}>
+        <HomeList accounts={accounts} />
+        <BottomNav />
+      </Space>
     </div>
   );
 }
