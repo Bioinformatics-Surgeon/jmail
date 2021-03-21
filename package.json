@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd": "^4.14.0",
+    "antd-mobile": "^2.3.4",
+    "babel-plugin-import": "^1.13.3",
+    "faker": "^5.4.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.3"
