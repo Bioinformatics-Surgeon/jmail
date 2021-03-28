@@ -1,6 +1,6 @@
-import React from "react";
 import { NavBar } from "antd-mobile";
-import { Icon, Btn } from "./buttons";
+import React from "react";
+import { Btn, Icon } from "../buttons";
 
 const BottomNav = () => {
   return (

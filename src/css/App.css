@@ -36,3 +36,44 @@
     transform: rotate(360deg);
   }
 }
+
+div.ant-collapse-content-box {
+  padding: 0px !important;
+}
+
+.fadeIn {
+  -webkit-animation: myFadeIn 1s linear forwards;
+  animation: myFadeIn 1s linear forwards;
+  opacity: 0;
+}
+
+@-webkit-keyframes myFadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes myFadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+
+.activePanel {
+  -webkit-animation: myFadeInBackground 1s linear forwards;
+  animation: myFadeInBackground 1s linear forwards;
+  background: #40a9ff !important;
+  opacity: 0.8;
+}
+
+@-webkit-keyframes myFadeInBackground {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes myFadeInBackground {
+  100% {
+    opacity: 1;
+  }
+}

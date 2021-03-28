@@ -5,21 +5,22 @@ import {
   SearchOutlined,
   SettingOutlined,
 } from "@ant-design/icons";
+import { Input, Space } from "antd";
 import { Badge } from "antd-mobile";
 import React, { useState } from "react";
 
-import { Input, Space } from "antd";
-
-const { Search } = Input;
-
-const SerachComp = () => {
+const SerachComp = ({ show }) => {
   return (
-    <Input allowClear placeholder="input search text" style={{ width: 200 }} />
+    <Input
+      className={show ? "fadeIn" : ""}
+      allowClear
+      placeholder="input search text"
+      style={{ width: 150 }}
+    />
   );
 };
 
 const Icon = ({ badgeCount, icon, text = null }) => {
-  const noBadgeCount = badgeCount === undefined ? true : false;
   const [showInput, setShowInput] = useState(false);
   const iconComp = chooseIcon(icon);
 
@@ -64,7 +65,7 @@ const Icon = ({ badgeCount, icon, text = null }) => {
 
   return (
     <Space direction="horizontal">
-      {showInput && <SerachComp />}
+      {showInput && <SerachComp show={showInput} />}
       <Badge text={badgeCount} style={getStyles()}>
         {text && text}
         {iconComp}
