@@ -3,7 +3,16 @@ import {
   ReloadOutlined,
   RightOutlined,
   SearchOutlined,
+  DeleteOutlined,
+  InboxOutlined,
+  FolderOutlined,
+  FileOutlined,
+  SendOutlined,
+  FrownOutlined,
   SettingOutlined,
+  LeftCircleOutlined,
+  RollbackOutlined,
+  PaperClipOutlined,
 } from "@ant-design/icons";
 import { Input, Space } from "antd";
 import { Badge } from "antd-mobile";
@@ -48,8 +57,32 @@ const Icon = ({ badgeCount, icon, text = null }) => {
         return <SettingOutlined style={{ ...styles.ml_1 }} />;
       case "rightOutline":
         return <RightOutlined style={{ ...styles.ml_1 }} />;
+      case "leftOutline":
+        return <LeftCircleOutlined style={{ ...styles.ml_1 }} />;
+      case "inbox":
+        return <InboxOutlined style={{ ...styles.mr_1 }} />;
       case "mail":
         return <MailOutlined style={{ ...styles.mr_1 }} />;
+      case "trash":
+        return <DeleteOutlined style={{ ...styles.mr_1 }} />;
+      case "trash-m0":
+        return <DeleteOutlined />;
+      case "draft":
+        return <FileOutlined style={{ ...styles.mr_1 }} />;
+      case "folder":
+        return <FolderOutlined style={{ ...styles.mr_1 }} />;
+      case "folder-m0":
+        return <FolderOutlined />;
+      case "sent":
+        return <SendOutlined style={{ ...styles.mr_1 }} />;
+      case "junk":
+        return <FrownOutlined style={{ ...styles.mr_1 }} />;
+      case "clip":
+        return <PaperClipOutlined style={{ ...styles.mr_1 }} />;
+      case "rollBack":
+        return <RollbackOutlined style={{ ...styles.mr_1 }} />;
+      case "rollBack-m0":
+        return <RollbackOutlined />;
       default:
         return <></>;
     }

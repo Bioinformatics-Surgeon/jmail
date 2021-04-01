@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { BottomNav, TopNav } from "./components/navs";
-import { Account, Home } from "./components/pages";
+import { Account, Home, Email } from "./components/pages";
+
 import "./css/App.css";
 import API from "./data/API";
 
@@ -33,11 +34,16 @@ function App(props) {
     setUnReads(count);
   }, [accounts]);
 
+  console.log(props);
+
   return (
     <Router>
       <div>
         <TopNav unReads={unReads} />
         <Switch>
+          <Route path="/account/:id/:email_id">
+            <Email />
+          </Route>
           <Route path="/account/:id">
             <Account />
           </Route>

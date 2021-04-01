@@ -1,9 +1,9 @@
-import { Collapse, Spin } from "antd";
+import { Collapse, Space, Spin, Row, Col } from "antd";
 import { Card, List, WhiteSpace } from "antd-mobile";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import API from "../../data/API";
-import { Btn } from "../buttons";
+import { Btn, Icon } from "../buttons";
 const Item = List.Item;
 
 const { Panel } = Collapse;
@@ -33,8 +33,6 @@ const Account = (props) => {
     };
   }, []);
 
-  console.log("activePanel: ", activePanel);
-
   return (
     <>
       {accountLoaded ? (
@@ -51,12 +49,18 @@ const Account = (props) => {
             const emails = account.userEmails[k].emails;
             const folder_id = account.userEmails[k]._id;
             const folderName = account.userEmails[k].name;
+            const icon = account.userEmails[k].icon;
 
             return (
               <Panel
                 key={folder_id}
                 className={activePanel === folder_id ? "activePanel" : ""}
-                header={folderName}
+                header={
+                  <div>
+                    <Icon icon={icon} />
+                    {folderName}
+                  </div>
+                }
                 forceRender={true}
                 style={{ padding: "0px" }}
               >
@@ -98,7 +102,11 @@ const Account = (props) => {
           })}
         </Collapse>
       ) : (
-        <Spin />
+        <Row align="middle" justify="center" style={{ height: "100vh" }}>
+          <Col>
+            <Spin size="large" />
+          </Col>
+        </Row>
       )}
     </>
   );

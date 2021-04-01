@@ -2,7 +2,7 @@ import faker from "faker";
 let accounts = [];
 
 const getRandomNum = () => {
-  return Math.random() * (10 - 2) + 2;
+  return Math.floor(Math.random() * (10 - 2) + 2);
 };
 
 const getRandomMail = () => {
@@ -18,6 +18,7 @@ const getRandomMail = () => {
       time: faker.date.recent(),
       isRead: faker.datatype.boolean(),
       thumb: faker.image.avatar(),
+      attachments: getRandomNum(),
     });
   }
 
@@ -28,36 +29,43 @@ function getEmails() {
   return {
     0: {
       name: "Inbox",
+      icon: "inbox",
       emails: getRandomMail(),
       _id: faker.datatype.uuid(),
     },
     1: {
       name: "Drafts",
+      icon: "draft",
       emails: getRandomMail(),
       _id: faker.datatype.uuid(),
     },
     2: {
       name: "Sent",
+      icon: "sent",
       emails: getRandomMail(),
       _id: faker.datatype.uuid(),
     },
     3: {
       name: "Trash",
+      icon: "trash",
       emails: getRandomMail(),
       _id: faker.datatype.uuid(),
     },
     4: {
       name: "Junk",
+      icon: "junk",
       emails: getRandomMail(),
       _id: faker.datatype.uuid(),
     },
     5: {
       name: "My Folder",
+      icon: "folder",
       emails: getRandomMail(),
       _id: faker.datatype.uuid(),
     },
     6: {
       name: "Person Folder",
+      icon: "folder",
       emails: getRandomMail(),
       _id: faker.datatype.uuid(),
     },
@@ -104,6 +112,31 @@ const API = {
         resolve(accounts[user_index]);
       } else {
         reject("Error with handleAccount()");
+      }
+    });
+  },
+
+  getEmail: (account_id, email_id) => {
+    return new Promise((resolve, reject) => {
+      if (account_id && email_id) {
+        let data = null;
+
+        Object.values(accounts[account_id].userEmails).forEach((account) => {
+          // console.log("account: ", account);
+          Object.values(account.emails).forEach((email) => {
+            // console.log("email: ", email);
+            if (email._id === email_id) {
+              data = email;
+            } else {
+              return;
+            }
+          });
+        });
+
+        console.log("data", data);
+        resolve(data);
+      } else {
+        reject("Error with getEmailById");
       }
     });
   },

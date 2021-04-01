@@ -1,4 +1,4 @@
-import { RightOutlined } from "@ant-design/icons";
+import { RightOutlined, MailOutlined } from "@ant-design/icons";
 import { Button, Space } from "antd";
 import { Badge, List } from "antd-mobile";
 import React from "react";
@@ -24,8 +24,6 @@ const Home = ({ accounts, handleClick }) => {
                       }
                     </Badge>
 
-                    {/* <Link to="/account"> */}
-
                     <Link to={{ pathname: `/account/${i}` }}>
                       <Button
                         onClick={handleClick}
@@ -42,6 +40,8 @@ const Home = ({ accounts, handleClick }) => {
                 user_id={a._id}
                 name={a.user_id}
               >
+                <MailOutlined style={{ marginRight: "16px" }} />
+
                 {a.userEmail}
               </Item>
             );
